@@ -514,7 +514,7 @@ emailTo String ,
 }
 
 entity FileSystem {
-data Blob ,
+fileData Blob ,
 fileName String ,
 createdDate Instant ,
     createdBy String ,
