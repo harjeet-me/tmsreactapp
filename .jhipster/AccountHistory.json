@@ -1,0 +1,29 @@
+{
+  "name": "AccountHistory",
+  "fields": [
+    {
+      "fieldName": "enityName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "entityLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "action",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201101062701",
+  "entityTableName": "account_history",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

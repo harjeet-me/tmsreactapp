@@ -1,0 +1,54 @@
+import { Moment } from 'moment';
+import { IInsurance } from 'app/shared/model/insurance.model';
+import { ITrip } from 'app/shared/model/trip.model';
+import { Designation } from 'app/shared/model/enumerations/designation.model';
+import { PreffredContactType } from 'app/shared/model/enumerations/preffred-contact-type.model';
+import { CountryEnum } from 'app/shared/model/enumerations/country-enum.model';
+import { ToggleStatus } from 'app/shared/model/enumerations/toggle-status.model';
+import { CURRENCY } from 'app/shared/model/enumerations/currency.model';
+
+export interface ICarrier {
+  id?: number;
+  company?: string;
+  firstName?: string;
+  lastName?: string;
+  contactDesignation?: Designation;
+  email?: string;
+  phoneNumber?: number;
+  phoneNumberExtention?: number;
+  preffredContactType?: PreffredContactType;
+  website?: string;
+  alternateContactPerson?: string;
+  alternateContactNumber?: number;
+  alternatePhoneNumberExtention?: number;
+  alternateContactEmail?: string;
+  preferredContactTime?: string;
+  fax?: number;
+  address?: string;
+  streetAddress?: string;
+  city?: string;
+  stateProvince?: string;
+  country?: CountryEnum;
+  postalCode?: string;
+  dot?: string;
+  mc?: number;
+  taxId?: string;
+  companyLogoContentType?: string;
+  companyLogo?: any;
+  customerSince?: string;
+  notes?: string;
+  contractContentType?: string;
+  contract?: any;
+  status?: ToggleStatus;
+  preffredCurrency?: CURRENCY;
+  payterms?: string;
+  timeZone?: string;
+  createdDate?: string;
+  createdBy?: string;
+  lastModifiedDate?: string;
+  lastModifiedBy?: string;
+  operInsurance?: IInsurance;
+  loadOrders?: ITrip[];
+}
+
+export const defaultValue: Readonly<ICarrier> = {};

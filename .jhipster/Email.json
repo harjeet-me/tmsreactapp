@@ -1,0 +1,92 @@
+{
+  "name": "Email",
+  "fields": [
+    {
+      "fieldName": "userto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "usercc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userbcc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subject",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "multipart",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "htmlBody",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "attachment",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "attachmentName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sentDateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "fileSystem",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "fileSystem"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "email",
+      "relationshipName": "customer",
+      "otherEntityField": "company"
+    }
+  ],
+  "changelogDate": "20201101062501",
+  "entityTableName": "email",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

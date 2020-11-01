@@ -1,0 +1,91 @@
+{
+  "name": "Location",
+  "fields": [
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "streetAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "CountryEnum",
+      "fieldValues": "USA,CANADA,MEXICO"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "trip",
+      "otherEntityRelationshipName": "pickupLocation",
+      "relationshipName": "trippick"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "trip",
+      "otherEntityRelationshipName": "dropLocation",
+      "relationshipName": "tripdrop"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "container",
+      "otherEntityRelationshipName": "pickupLocation",
+      "relationshipName": "contpick"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "container",
+      "otherEntityRelationshipName": "dropLocation",
+      "relationshipName": "contdrop"
+    }
+  ],
+  "changelogDate": "20201101062401",
+  "entityTableName": "location",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

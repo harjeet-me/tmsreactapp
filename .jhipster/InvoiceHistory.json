@@ -1,0 +1,66 @@
+{
+  "name": "InvoiceHistory",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "InvoiceStatus",
+      "fieldValues": "DRAFT,GENERATED,SENT,PAID,OVERDRAFT,VOIDED,PARTIALLY_PAID"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invoiceHistory",
+      "otherEntityRelationshipName": "invoiceHistory",
+      "relationshipName": "previous",
+      "otherEntityField": "status",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "invoiceHistory",
+      "otherEntityRelationshipName": "invoiceHistory",
+      "relationshipName": "next",
+      "otherEntityField": "status",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "invoiceHistory",
+      "relationshipName": "invoice",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201101062601",
+  "entityTableName": "invoice_history",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
