@@ -91,8 +91,8 @@ export const FileSystem = (props: IFileSystemProps) => {
                 <th className="hand" onClick={sort('id')}>
                   ID <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('data')}>
-                  Data <FontAwesomeIcon icon="sort" />
+                <th className="hand" onClick={sort('fileData')}>
+                  File Data <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('fileName')}>
                   File Name <FontAwesomeIcon icon="sort" />
@@ -124,13 +124,13 @@ export const FileSystem = (props: IFileSystemProps) => {
                     </Button>
                   </td>
                   <td>
-                    {fileSystem.data ? (
+                    {fileSystem.fileData ? (
                       <div>
-                        {fileSystem.dataContentType ? (
-                          <a onClick={openFile(fileSystem.dataContentType, fileSystem.data)}>Open &nbsp;</a>
+                        {fileSystem.fileDataContentType ? (
+                          <a onClick={openFile(fileSystem.fileDataContentType, fileSystem.fileData)}>Open &nbsp;</a>
                         ) : null}
                         <span>
-                          {fileSystem.dataContentType}, {byteSize(fileSystem.data)}
+                          {fileSystem.fileDataContentType}, {byteSize(fileSystem.fileData)}
                         </span>
                       </div>
                     ) : null}

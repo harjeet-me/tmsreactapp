@@ -3,8 +3,8 @@ import { IEmail } from 'app/shared/model/email.model';
 
 export interface IFileSystem {
   id?: number;
-  dataContentType?: string;
-  data?: any;
+  fileDataContentType?: string;
+  fileData?: any;
   fileName?: string;
   createdDate?: string;
   createdBy?: string;

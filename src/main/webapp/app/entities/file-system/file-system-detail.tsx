@@ -26,16 +26,16 @@ export const FileSystemDetail = (props: IFileSystemDetailProps) => {
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="data">Data</span>
+            <span id="fileData">File Data</span>
           </dt>
           <dd>
-            {fileSystemEntity.data ? (
+            {fileSystemEntity.fileData ? (
               <div>
-                {fileSystemEntity.dataContentType ? (
-                  <a onClick={openFile(fileSystemEntity.dataContentType, fileSystemEntity.data)}>Open&nbsp;</a>
+                {fileSystemEntity.fileDataContentType ? (
+                  <a onClick={openFile(fileSystemEntity.fileDataContentType, fileSystemEntity.fileData)}>Open&nbsp;</a>
                 ) : null}
                 <span>
-                  {fileSystemEntity.dataContentType}, {byteSize(fileSystemEntity.data)}
+                  {fileSystemEntity.fileDataContentType}, {byteSize(fileSystemEntity.fileData)}
                 </span>
               </div>
             ) : null}

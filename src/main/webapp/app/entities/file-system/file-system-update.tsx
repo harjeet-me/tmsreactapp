@@ -22,7 +22,7 @@ export const FileSystemUpdate = (props: IFileSystemUpdateProps) => {
 
   const { fileSystemEntity, emails, loading, updating } = props;
 
-  const { data, dataContentType } = fileSystemEntity;
+  const { fileData, fileDataContentType } = fileSystemEntity;
 
   const handleClose = () => {
     props.history.push('/file-system' + props.location.search);
@@ -91,30 +91,30 @@ export const FileSystemUpdate = (props: IFileSystemUpdateProps) => {
               ) : null}
               <AvGroup>
                 <AvGroup>
-                  <Label id="dataLabel" for="data">
-                    Data
+                  <Label id="fileDataLabel" for="fileData">
+                    File Data
                   </Label>
                   <br />
-                  {data ? (
+                  {fileData ? (
                     <div>
-                      {dataContentType ? <a onClick={openFile(dataContentType, data)}>Open</a> : null}
+                      {fileDataContentType ? <a onClick={openFile(fileDataContentType, fileData)}>Open</a> : null}
                       <br />
                       <Row>
                         <Col md="11">
                           <span>
-                            {dataContentType}, {byteSize(data)}
+                            {fileDataContentType}, {byteSize(fileData)}
                           </span>
                         </Col>
                         <Col md="1">
-                          <Button color="danger" onClick={clearBlob('data')}>
+                          <Button color="danger" onClick={clearBlob('fileData')}>
                             <FontAwesomeIcon icon="times-circle" />
                           </Button>
                         </Col>
                       </Row>
                     </div>
                   ) : null}
-                  <input id="file_data" type="file" onChange={onBlobChange(false, 'data')} />
-                  <AvInput type="hidden" name="data" value={data} />
+                  <input id="file_fileData" type="file" onChange={onBlobChange(false, 'fileData')} />
+                  <AvInput type="hidden" name="fileData" value={fileData} />
                 </AvGroup>
               </AvGroup>
               <AvGroup>

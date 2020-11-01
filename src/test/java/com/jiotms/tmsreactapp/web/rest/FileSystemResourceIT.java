@@ -33,10 +33,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WithMockUser
 public class FileSystemResourceIT {
 
-    private static final byte[] DEFAULT_DATA = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_DATA = TestUtil.createByteArray(1, "1");
-    private static final String DEFAULT_DATA_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_DATA_CONTENT_TYPE = "image/png";
+    private static final byte[] DEFAULT_FILE_DATA = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FILE_DATA = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_FILE_DATA_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FILE_DATA_CONTENT_TYPE = "image/png";
 
     private static final String DEFAULT_FILE_NAME = "AAAAAAAAAA";
     private static final String UPDATED_FILE_NAME = "BBBBBBBBBB";
@@ -75,8 +75,8 @@ public class FileSystemResourceIT {
      */
     public static FileSystem createEntity(EntityManager em) {
         FileSystem fileSystem = new FileSystem()
-            .data(DEFAULT_DATA)
-            .dataContentType(DEFAULT_DATA_CONTENT_TYPE)
+            .fileData(DEFAULT_FILE_DATA)
+            .fileDataContentType(DEFAULT_FILE_DATA_CONTENT_TYPE)
             .fileName(DEFAULT_FILE_NAME)
             .createdDate(DEFAULT_CREATED_DATE)
             .createdBy(DEFAULT_CREATED_BY)
@@ -92,8 +92,8 @@ public class FileSystemResourceIT {
      */
     public static FileSystem createUpdatedEntity(EntityManager em) {
         FileSystem fileSystem = new FileSystem()
-            .data(UPDATED_DATA)
-            .dataContentType(UPDATED_DATA_CONTENT_TYPE)
+            .fileData(UPDATED_FILE_DATA)
+            .fileDataContentType(UPDATED_FILE_DATA_CONTENT_TYPE)
             .fileName(UPDATED_FILE_NAME)
             .createdDate(UPDATED_CREATED_DATE)
             .createdBy(UPDATED_CREATED_BY)
@@ -121,8 +121,8 @@ public class FileSystemResourceIT {
         List<FileSystem> fileSystemList = fileSystemRepository.findAll();
         assertThat(fileSystemList).hasSize(databaseSizeBeforeCreate + 1);
         FileSystem testFileSystem = fileSystemList.get(fileSystemList.size() - 1);
-        assertThat(testFileSystem.getData()).isEqualTo(DEFAULT_DATA);
-        assertThat(testFileSystem.getDataContentType()).isEqualTo(DEFAULT_DATA_CONTENT_TYPE);
+        assertThat(testFileSystem.getFileData()).isEqualTo(DEFAULT_FILE_DATA);
+        assertThat(testFileSystem.getFileDataContentType()).isEqualTo(DEFAULT_FILE_DATA_CONTENT_TYPE);
         assertThat(testFileSystem.getFileName()).isEqualTo(DEFAULT_FILE_NAME);
         assertThat(testFileSystem.getCreatedDate()).isEqualTo(DEFAULT_CREATED_DATE);
         assertThat(testFileSystem.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
@@ -161,8 +161,8 @@ public class FileSystemResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(fileSystem.getId().intValue())))
-            .andExpect(jsonPath("$.[*].dataContentType").value(hasItem(DEFAULT_DATA_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].data").value(hasItem(Base64Utils.encodeToString(DEFAULT_DATA))))
+            .andExpect(jsonPath("$.[*].fileDataContentType").value(hasItem(DEFAULT_FILE_DATA_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].fileData").value(hasItem(Base64Utils.encodeToString(DEFAULT_FILE_DATA))))
             .andExpect(jsonPath("$.[*].fileName").value(hasItem(DEFAULT_FILE_NAME)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
             .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
@@ -181,8 +181,8 @@ public class FileSystemResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(fileSystem.getId().intValue()))
-            .andExpect(jsonPath("$.dataContentType").value(DEFAULT_DATA_CONTENT_TYPE))
-            .andExpect(jsonPath("$.data").value(Base64Utils.encodeToString(DEFAULT_DATA)))
+            .andExpect(jsonPath("$.fileDataContentType").value(DEFAULT_FILE_DATA_CONTENT_TYPE))
+            .andExpect(jsonPath("$.fileData").value(Base64Utils.encodeToString(DEFAULT_FILE_DATA)))
             .andExpect(jsonPath("$.fileName").value(DEFAULT_FILE_NAME))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()))
             .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
@@ -210,8 +210,8 @@ public class FileSystemResourceIT {
         // Disconnect from session so that the updates on updatedFileSystem are not directly saved in db
         em.detach(updatedFileSystem);
         updatedFileSystem
-            .data(UPDATED_DATA)
-            .dataContentType(UPDATED_DATA_CONTENT_TYPE)
+            .fileData(UPDATED_FILE_DATA)
+            .fileDataContentType(UPDATED_FILE_DATA_CONTENT_TYPE)
             .fileName(UPDATED_FILE_NAME)
             .createdDate(UPDATED_CREATED_DATE)
             .createdBy(UPDATED_CREATED_BY)
@@ -227,8 +227,8 @@ public class FileSystemResourceIT {
         List<FileSystem> fileSystemList = fileSystemRepository.findAll();
         assertThat(fileSystemList).hasSize(databaseSizeBeforeUpdate);
         FileSystem testFileSystem = fileSystemList.get(fileSystemList.size() - 1);
-        assertThat(testFileSystem.getData()).isEqualTo(UPDATED_DATA);
-        assertThat(testFileSystem.getDataContentType()).isEqualTo(UPDATED_DATA_CONTENT_TYPE);
+        assertThat(testFileSystem.getFileData()).isEqualTo(UPDATED_FILE_DATA);
+        assertThat(testFileSystem.getFileDataContentType()).isEqualTo(UPDATED_FILE_DATA_CONTENT_TYPE);
         assertThat(testFileSystem.getFileName()).isEqualTo(UPDATED_FILE_NAME);
         assertThat(testFileSystem.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
         assertThat(testFileSystem.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);

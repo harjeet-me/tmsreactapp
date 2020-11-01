@@ -2,7 +2,7 @@
   "name": "FileSystem",
   "fields": [
     {
-      "fieldName": "data",
+      "fieldName": "fileData",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "any"
     },
