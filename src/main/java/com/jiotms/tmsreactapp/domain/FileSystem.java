@@ -24,11 +24,11 @@ public class FileSystem implements Serializable {
     private Long id;
 
     @Lob
-    @Column(name = "data")
-    private byte[] data;
+    @Column(name = "file_data")
+    private byte[] fileData;
 
-    @Column(name = "data_content_type")
-    private String dataContentType;
+    @Column(name = "file_data_content_type")
+    private String fileDataContentType;
 
     @Column(name = "file_name")
     private String fileName;
@@ -58,30 +58,30 @@ public class FileSystem implements Serializable {
         this.id = id;
     }
 
-    public byte[] getData() {
-        return data;
+    public byte[] getFileData() {
+        return fileData;
     }
 
-    public FileSystem data(byte[] data) {
-        this.data = data;
+    public FileSystem fileData(byte[] fileData) {
+        this.fileData = fileData;
         return this;
     }
 
-    public void setData(byte[] data) {
-        this.data = data;
+    public void setFileData(byte[] fileData) {
+        this.fileData = fileData;
     }
 
-    public String getDataContentType() {
-        return dataContentType;
+    public String getFileDataContentType() {
+        return fileDataContentType;
     }
 
-    public FileSystem dataContentType(String dataContentType) {
-        this.dataContentType = dataContentType;
+    public FileSystem fileDataContentType(String fileDataContentType) {
+        this.fileDataContentType = fileDataContentType;
         return this;
     }
 
-    public void setDataContentType(String dataContentType) {
-        this.dataContentType = dataContentType;
+    public void setFileDataContentType(String fileDataContentType) {
+        this.fileDataContentType = fileDataContentType;
     }
 
     public String getFileName() {
@@ -184,8 +184,8 @@ public class FileSystem implements Serializable {
     public String toString() {
         return "FileSystem{" +
             "id=" + getId() +
-            ", data='" + getData() + "'" +
-            ", dataContentType='" + getDataContentType() + "'" +
+            ", fileData='" + getFileData() + "'" +
+            ", fileDataContentType='" + getFileDataContentType() + "'" +
             ", fileName='" + getFileName() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
